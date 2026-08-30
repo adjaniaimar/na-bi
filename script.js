@@ -7,25 +7,22 @@ const pastelColors = [
 
 // SVG //
 const butterflySVG = `
-            <div class="deco-container">
-                <svg class="deco-svg" viewBox="0 0 100 100">
-                    <path class="body-deco" d="M50,25 L52,50 L50,75 L48,50 Z" />
-                    <circle class="body-deco" cx="50" cy="23" r="2.5" />
-                    <g class="wing-group left-side">
-                        <path class="wireframe" d="M48,45 C28,5 8,15 5,35 Q0,55 20,58 Q32,60 48,48 Z" />
-                        <path class="wireframe" d="M45,42 C33,25 18,28 12,38" fill="none"/>
-                        <path class="wireframe" d="M48,52 C30,55 15,65 18,80 Q25,92 38,82 Q45,74 48,58 Z" />
-                        <path class="wireframe" d="M45,55 C35,65 25,72 24,78" fill="none"/>
-                    </g>
-                    <g class="wing-group right-side">
-                        <path class="wireframe" d="M52,45 C72,5 92,15 95,35 Q100,55 80,58 Q68,60 52,48 Z" />
-                        <path class="wireframe" d="M55,42 C67,25 82,28 88,38" fill="none"/>
-                        <path class="wireframe" d="M52,52 C70,55 85,65 82,80 Q75,92 62,82 Q55,74 52,58 Z" />
-                        <path class="wireframe" d="M55,55 C65,65 75,72 76,78" fill="none"/>
-                    </g>
-                </svg>
-            </div>
-        `;
+    <div class="deco-container">
+        <svg class="deco-svg" viewBox="0 0 100 100">
+            <path class="body-deco" d="M49,53 C46,48 44,42 46,36" />
+            <path class="body-deco" d="M51,53 C54,48 56,42 54,36" />
+            <path class="body-deco" d="M50,50 L50,58" stroke-width="1.6" />
+            <g class="wing-group left-side">
+                <path class="tribal-wing" d="M50,54 C40,50 28,44 20,28 C14,16 18,4 28,10 C34,14 30,22 24,20 C18,26 22,36 30,38 C38,40 46,46 50,54 Z M33,24 C36,21 40,23 39,27 C38,30 34,29 33,26 C33,25 33,24 33,24 Z" />
+                <path class="tribal-wing" d="M50,56 C42,58 32,62 26,74 C22,82 26,90 34,84 C40,80 38,70 44,66 C47,63 49,59 50,56 Z" />
+            </g>
+            <g class="wing-group right-side">
+                <path class="tribal-wing" d="M50,54 C60,50 72,44 80,28 C86,16 82,4 72,10 C66,14 70,22 76,20 C82,26 78,36 70,38 C62,40 54,46 50,54 Z M67,24 C64,21 60,23 61,27 C62,30 66,29 67,26 C67,25 67,24 67,24 Z" />
+                <path class="tribal-wing" d="M50,56 C58,58 68,62 74,74 C78,82 74,90 66,84 C60,80 62,70 56,66 C53,63 51,59 50,56 Z" />
+            </g>
+        </svg>
+    </div>
+`;
 
 // EASING HELPERS //
 function easeInOutSine(t) {
@@ -49,10 +46,13 @@ for (let i = 0; i < TOTAL_BUTTERFLIES; i++) {
 
     const color = pastelColors[i % pastelColors.length];
 
-    wrapper.querySelectorAll('.wireframe').forEach(el => {
-        el.style.stroke = color;
-        el.style.fill = color + '28';
+    wrapper.querySelectorAll('.tribal-wing').forEach(el => {
+        el.style.fill = color;
     });
+    wrapper.querySelectorAll('.body-deco').forEach(el => {
+        el.style.stroke = color;
+    });
+    wrapper.querySelector('.deco-svg').style.color = color;
 
     animateButterfly(wrapper, color);
 }

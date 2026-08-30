@@ -1,7 +1,12 @@
 body {
     margin: 0;
     height: 100vh;
-    background-color: #0d0c13;
+    background-color: #05070a;
+    background-image: url('assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow: hidden;
     position: relative;
 }
@@ -25,17 +30,20 @@ body {
     width: 100%;
     height: 100%;
     animation: float 3.5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 4px currentColor) drop-shadow(0 0 9px currentColor);
 }
 
-.wireframe {
-    fill: rgba(255, 255, 255, 0.2);
-    stroke-width: 1.8;
-    stroke-linecap: round;
+.tribal-wing {
+    fill-rule: evenodd;
+    stroke: rgba(4, 6, 10, 0.55);
+    stroke-width: 0.6;
+    stroke-linejoin: round;
 }
 
 .body-deco {
-    fill: #ffffff;
-    opacity: 0.85;
+    fill: none;
+    stroke-width: 1;
+    stroke-linecap: round;
 }
 
 /* 3D */
